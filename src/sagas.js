@@ -2,16 +2,10 @@ import { delay } from 'redux-saga'
 import { call, put, takeEvery, all, select, takeLatest } from 'redux-saga/effects'
 import { types, increment } from './actions'
 
-
-function* watchLoadPosts() {
-    yield takeLatest(types.LOAD_POSTS_REQUEST, loadPosts);
-}
-
-function* loadPosts() {
-    /**
+ /**
  * Este array de objetoos contiene la informacion sobre la cual deberas maquetar las cards
  */
-    const postings = [
+  const postings = [
     {
       posting_id: "44557981", //id del aviso
       posting_location: { //direccion del aviso
@@ -85,12 +79,33 @@ function* loadPosts() {
       posting_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a neque non magna scelerisque imperdiet sed ac magna. Mauris enim lectus, varius at quam a, venenatis condimentum ante. Morbi mattis velit vel dictum varius. Suspendisse tempor velit ac rhoncus vehicula. Aenean elementum dolor purus, et mattis arcu consectetur a. Sed dictum felis id molestie accumsan. Aliquam sit amet diam feugiat, tincidunt sem vehicula, dignissim augue. Integer gravida sapien erat, in faucibus ligula cursus non. Aliquam vestibulum est nibh, vitae vehicula ipsum facilisis quis. Pellentesque ac tempus metus, non posuere dolor."
     }
   ];
+
+function* watchLoadPosts() {
+    yield takeLatest(types.LOAD_POSTS_REQUEST, loadPosts);
+}
+
+function* watchFilterPosts() {
+    yield takeLatest(types.FILTER_POSTS_REQUEST, filterPosts);
+}
+
+function* loadPosts() {
     yield call(delay, 1500);
     yield put({ type: types.LOAD_POSTS_SUCCESS, posts: postings });
+}
+
+function* filterPosts({condition}/*funToFilter*/ ) {
+    yield call(delay, 1500);
+    //let filteredPosts = postings.filter(funToFilter.funToFilter);
+    let filteredPosts = postings;
+    if (condition !== "Todos") {
+        filteredPosts = postings.filter(post => post.operation_type.operation_type_name === condition)
+    }
+    yield put({ type: types.FILTER_POSTS_SUCCESS, filteredPosts: filteredPosts });
 }
 
 export default function* rootSaga() {
   yield all([
     watchLoadPosts(),
+    watchFilterPosts(),
   ])
 }
