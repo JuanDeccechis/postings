@@ -38,7 +38,7 @@ class PostItem extends React.Component {
         const { index, post } = this.props;
         const { isFavorite } = this.state;
         return(
-            <li key={index} className={`decoration-plan ${post.publication_plan}`}>
+            <li key={index} className={`container post-item-container decoration-plan ${post.publication_plan}`}>
                 <div>
                     <Carrousel />
                     {post.posting_prices[0].expenses ?

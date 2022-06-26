@@ -1,0 +1,31 @@
+#root{
+  --primary-color: #f4730b;
+  --secondary-color: #640b73;
+  --background-color: lightgrey;
+  --container-color: white;
+  --separation: 20px;
+  --short-separation: 10px;
+  --border-radius: 5px;
+}
+
+h2{
+  font-size: 1.1em;
+  font-weight: 500;
+  margin: 0;
+}
+
+h3{
+  font-size: 1em;
+  font-weight: bold;
+}
+
+input {
+  padding: var(--short-separation);
+  border-radius: var(--border-radius);
+  border-color: var(--background-color);
+}
+
+label {
+  font-size: 0.8em;
+  color: rgba(0, 0, 0, 0.7);
+}
