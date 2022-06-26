@@ -39,7 +39,7 @@ const mapStateToProps = state => {
     return {
       value: state.value,
       fetching: state.fetching,
-      posts: state.posts
+      posts: state.filteredPosts
     };
   };
   
