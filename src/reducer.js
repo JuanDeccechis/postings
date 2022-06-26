@@ -26,7 +26,19 @@ export default function postings(state = initialState, action) {
             ...state,
             fetching:false
         }
-    case types.FILTER_POSTS_REQUEST:
+    case types.FILTER_POSTS_BY_LOCATION_REQUEST:
+        return {
+            ...state,
+            filteredPosts: null,
+            fetching:true
+        }
+    case types.FILTER_POSTS_BY_TYPE_REQUEST:
+        return {
+            ...state,
+            filteredPosts: null,
+            fetching:true
+        }
+    case types.FILTER_POSTS_BY_TYPE_AND_LOCATION_REQUEST:
         return {
             ...state,
             filteredPosts: null,

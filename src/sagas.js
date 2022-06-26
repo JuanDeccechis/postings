@@ -1,7 +1,6 @@
 import { delay } from 'redux-saga'
 import { call, put, takeEvery, all, select, takeLatest } from 'redux-saga/effects'
-import { types, increment } from './actions'
-
+import { types } from './actions'
  /**
  * Este array de objetoos contiene la informacion sobre la cual deberas maquetar las cards
  */
@@ -84,8 +83,16 @@ function* watchLoadPosts() {
     yield takeLatest(types.LOAD_POSTS_REQUEST, loadPosts);
 }
 
-function* watchFilterPosts() {
-    yield takeLatest(types.FILTER_POSTS_REQUEST, filterPosts);
+function* watchFilterPostsByType() {
+    yield takeLatest(types.FILTER_POSTS_BY_TYPE_REQUEST, filterPostsOnlyByType);
+}
+
+function* watchFilterPostsByLocation() {
+    yield takeLatest(types.FILTER_POSTS_BY_LOCATION_REQUEST, filterPostsOnlyByLocation);
+}
+
+function* watchFilterPostsByTypeAndLocation() {
+    yield takeLatest(types.FILTER_POSTS_BY_TYPE_AND_LOCATION_REQUEST, filterPostsByTypeAndLocation);   
 }
 
 function* loadPosts() {
@@ -93,9 +100,30 @@ function* loadPosts() {
     yield put({ type: types.LOAD_POSTS_SUCCESS, posts: postings });
 }
 
-function* filterPosts({condition}/*funToFilter*/ ) {
+function* filterPostsByTypeAndLocation({conditionType, conditionLocation}) {
     yield call(delay, 1500);
-    //let filteredPosts = postings.filter(funToFilter.funToFilter);
+    let filteredPosts = postings;
+    if (!conditionLocation) {
+        yield put({ type: types.FILTER_POSTS_BY_TYPE_REQUEST, condition: conditionType });
+    } else if (conditionType === "Todos") {
+        yield put({ type: types.FILTER_POSTS_BY_LOCATION_REQUEST, condition: conditionLocation });
+    } else {
+        filteredPosts = postings.filter(post => post.posting_location.zone === conditionLocation && post.operation_type.operation_type_name === conditionType)
+        yield put({ type: types.FILTER_POSTS_SUCCESS, filteredPosts: filteredPosts });
+    }
+}
+
+function* filterPostsOnlyByLocation({condition}) {
+    yield call(delay, 1500);
+    let filteredPosts = postings;
+    if (condition !== "") {
+        filteredPosts = postings.filter(post => post.posting_location.zone === condition)
+    }
+    yield put({ type: types.FILTER_POSTS_SUCCESS, filteredPosts: filteredPosts });
+}
+
+function* filterPostsOnlyByType({condition}) {
+    yield call(delay, 1500);
     let filteredPosts = postings;
     if (condition !== "Todos") {
         filteredPosts = postings.filter(post => post.operation_type.operation_type_name === condition)
@@ -106,6 +134,8 @@ function* filterPosts({condition}/*funToFilter*/ ) {
 export default function* rootSaga() {
   yield all([
     watchLoadPosts(),
-    watchFilterPosts(),
+    watchFilterPostsByType(),
+    watchFilterPostsByLocation(),
+    watchFilterPostsByTypeAndLocation(),
   ])
 }
