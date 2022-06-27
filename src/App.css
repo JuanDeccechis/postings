@@ -23,6 +23,7 @@ input {
   padding: var(--short-separation);
   border-radius: var(--border-radius);
   border-color: var(--background-color);
+  width: 200px;
 }
 
 label {

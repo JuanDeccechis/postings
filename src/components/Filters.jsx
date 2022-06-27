@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { filterPostsByType, filterPostsByLocation, filterPostsByTypeAndLocation } from '../actions'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import SearchIcon from '@material-ui/icons/Search';
 
 class Filters extends React.Component {
     constructor(props) {
@@ -56,8 +57,9 @@ class Filters extends React.Component {
                         <ExpandMoreIcon className={`icon right`}/>
                     </div>
                 </div>
-                <div className="accordion-content">
+                <div className="accordion-content inline">
                     <input placeholder="Buscar por direccion" onBlur={(evt) => this.setFilterByLocation(evt.target.value)} />
+                    <SearchIcon className={`icon right special-icon`}/>
                 </div>
 
                 <div className="inline divider cursor" onClick={() => this.toggleAcordion(1)}>
@@ -82,7 +84,7 @@ class Filters extends React.Component {
                         <input type="radio" id="age3" name="age" value="100" onClick={() => this.setFilterByType("Alquiler Temporal")} />
                         <label htmlFor="age3">Temporal</label>
                     </div>
-                    <div className="radio-option">
+                    <div className="radio-option last-option">
                         <input type="radio" id="age3" name="age" value="100" onClick={() => this.setFilterByType("Todos")} />
                         <label htmlFor="age3">Todos</label>
                     </div>
