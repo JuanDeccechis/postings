@@ -20,3 +20,24 @@
 .favorite {
     background-color: salmon;
 }
+
+.without-link-styles {
+    text-decoration: none;
+    color: initial;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.post-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-special-text {
+    font-size: 0.9em;
+}

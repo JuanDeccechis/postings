@@ -1,8 +1,12 @@
-.special-icon.icon {
-    border: 1px solid var(--background-color);
-    border-radius: var(--border-radius);
-    padding: 10px;
-    color: blue;
-    height: 18px;
-    width: 18px;
+.icon {
+    &.short-icon {
+        height: 18px;
+        width: 18px;
+    }
+    &.special-icon {
+        border: 1px solid var(--background-color);
+        border-radius: var(--border-radius);
+        padding: 10px;
+        color: rgb(26, 143, 137);
+    }
 }

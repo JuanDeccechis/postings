@@ -3,6 +3,7 @@
   --secondary-color: #640b73;
   --background-color: lightgrey;
   --container-color: white;
+  --button-text-color: white;
   --separation: 20px;
   --short-separation: 10px;
   --border-radius: 5px;
@@ -23,10 +24,15 @@ input {
   padding: var(--short-separation);
   border-radius: var(--border-radius);
   border-color: var(--background-color);
-  width: 200px;
 }
 
-label {
+label, span.description-text {
   font-size: 0.8em;
   color: rgba(0, 0, 0, 0.7);
+}
+
+.btn {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
 }

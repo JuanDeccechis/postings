@@ -11,9 +11,26 @@ class Description extends React.Component {
     }
 
     render() {
+        const { title, location_address, location_zone, location_city, description } = this.props;
         return (
             <div>
-                
+                <h3> { title } </h3>
+                <div>
+
+                {location_address && 
+                    <span className="post-special-text"> { location_address }, </span>
+                }
+                {location_zone && 
+                    <span className="post-special-text"> { location_zone }, </span>
+                }
+                {location_city && 
+                    <span className="post-special-text"> { location_city } </span>
+                }
+                </div>
+                <div>
+                    <span className="description-text"> { description } </span>
+                </div>
+
             </div>
         )
     }

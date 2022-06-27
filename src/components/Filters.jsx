@@ -59,7 +59,7 @@ class Filters extends React.Component {
                 </div>
                 <div className="accordion-content inline">
                     <input placeholder="Buscar por direccion" onBlur={(evt) => this.setFilterByLocation(evt.target.value)} />
-                    <SearchIcon className={`icon right special-icon`}/>
+                    <SearchIcon className={`icon right short-icon special-icon`}/>
                 </div>
 
                 <div className="inline divider cursor" onClick={() => this.toggleAcordion(1)}>

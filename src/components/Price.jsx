@@ -51,8 +51,14 @@ class Price extends React.Component {
         const { price, expenses } = this.state;
         return (
             <div>
-                {price}
-                {expenses}
+                <div className="price">
+                    {price}
+                </div>
+                {expenses &&
+                <span>
+                    + {expenses} Expensas
+                </span>
+                }
             </div>
         )
     }

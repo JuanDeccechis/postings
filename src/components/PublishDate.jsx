@@ -1,4 +1,5 @@
 import React from 'react'
+import HistoryIcon from '@material-ui/icons/History';
 
 class PublishDate extends React.Component {
     constructor(props) {
@@ -33,7 +34,8 @@ class PublishDate extends React.Component {
     render() {
         const { publish_dates_count } = this.state;
         return (
-            <span> 
+            <span className="post-special-text inline">
+                <HistoryIcon className="icon short-icon" />
                 Publicado hace {publish_dates_count} días
             </span>
         )
