@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { loadPosts } from '../actions'
 import PostItem from './PostItem'
 import Filters from './Filters'
+import { Oval } from  'react-loader-spinner'
 
 class PostsPage extends React.Component {
     constructor(props) {
@@ -17,7 +18,17 @@ class PostsPage extends React.Component {
     }
 
     render() {
-        const { posts } = this.props;
+        const { posts, fetching } = this.props;
+        if (fetching) {
+            return (
+                <div className="posts-page">
+                    <Filters />
+                    <div className="loading-centered">
+                        <Oval color="#1a8f89" height={80} width={80} secondaryColor="#FFFFFF" />
+                    </div>
+                </div>
+            )
+        }
         return (
             <div className="posts-page">
                 <Filters />

@@ -86,7 +86,7 @@ class PostItem extends React.Component {
                                 publish_date={post.publish_date}
                                 posting_id={post.posting_id}
                                 />
-                            <a href="https://google.com" className="without-link-styles btn btn-primary">Contactar</a>
+                            <a href={post.posting_slug} className="without-link-styles btn btn-primary">Contactar</a>
                         </div>
                     </div>
                 </div>

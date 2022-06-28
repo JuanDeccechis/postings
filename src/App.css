@@ -1,6 +1,6 @@
 #root{
   --primary-color: #f4730b;
-  --secondary-color: rgb(26, 143, 137);
+  --secondary-color: #1a8f89;
   --background-color: lightgrey;
   --container-color: white;
   --button-text-color: white;
@@ -10,6 +10,10 @@
   --border-radius: 5px;
   --scroll-bar-color: grey;
   --scroll-bar-background: white;
+}
+
+html {
+  background-color: lightgrey;
 }
 
 h2{
