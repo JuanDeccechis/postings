@@ -54,7 +54,7 @@ class Filters extends React.Component {
                         <h3>Dirección</h3>
                     </div> 
                     <div className="selectorAccordion">
-                        <ExpandMoreIcon className={`icon right`}/>
+                        <ExpandMoreIcon className={`icon right short-icon`}/>
                     </div>
                 </div>
                 <div className="accordion-content inline">
@@ -67,7 +67,7 @@ class Filters extends React.Component {
                         <h3>Tipo de operación</h3>
                     </div> 
                     <div className="selectorAccordion">
-                        <ExpandMoreIcon className={`icon right`}/>
+                        <ExpandMoreIcon className={`icon right short-icon`}/>
                     </div>
                 </div>
                 <div className="accordion-content">

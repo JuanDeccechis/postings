@@ -6,7 +6,7 @@
     &.special-icon {
         border: 1px solid var(--background-color);
         border-radius: var(--border-radius);
-        padding: 10px;
-        color: rgb(26, 143, 137);
+        padding: var(--short-separation);
+        color: var(--secondary-color);
     }
 }

@@ -13,12 +13,23 @@
         border-color: green;
     }
     &.SIMPLE{
-        border-color: rgba(255, 00, 00, 0);
+        border-color: rgba(0, 0, 0, 0); //transparente, sin borde queda distinto
     }
 }
-  
+
+.favorite-container {
+    background-color: var(--container-color);
+    border-radius: 500px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .favorite {
-    background-color: salmon;
+    color: salmon;
 }
 
 .without-link-styles {

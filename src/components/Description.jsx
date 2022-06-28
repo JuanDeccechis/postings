@@ -27,8 +27,8 @@ class Description extends React.Component {
                     <span className="post-special-text"> { location_city } </span>
                 }
                 </div>
-                <div>
-                    <span className="description-text"> { description } </span>
+                <div className="description-container">
+                    <div className="description-text"> { description } </div>
                 </div>
 
             </div>

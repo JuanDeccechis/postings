@@ -1,9 +1,10 @@
 #root{
   --primary-color: #f4730b;
-  --secondary-color: #640b73;
+  --secondary-color: rgb(26, 143, 137);
   --background-color: lightgrey;
   --container-color: white;
   --button-text-color: white;
+  --long-separation: 50px;
   --separation: 20px;
   --short-separation: 10px;
   --border-radius: 5px;
@@ -26,9 +27,9 @@ input {
   border-color: var(--background-color);
 }
 
-label, span.description-text {
+label, div.description-text {
   font-size: 0.8em;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.7); /* color gris de texto*/
 }
 
 .btn {

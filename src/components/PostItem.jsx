@@ -3,6 +3,8 @@ import Carrousel from './Carrousel'
 import Description from './Description'
 import Price from './Price'
 import PublishDate from './PublishDate'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 class PostItem extends React.Component {
     constructor(props) {
@@ -41,7 +43,13 @@ class PostItem extends React.Component {
             <li key={index} className={`container post-item-container decoration-plan ${post.publication_plan}`}>
                 <div>
                     <div>
-                        <button className={isFavorite ? 'favorite' : ''} onClick={() => this.handleToggleFavorites(post.posting_id)}>Favorites</button>
+                        <div className="favorite-container" onClick={() => this.handleToggleFavorites(post.posting_id)}>
+                        {isFavorite ? 
+                            <FavoriteIcon className={`icon right short-icon favorite`} />
+                        :
+                            <FavoriteBorderIcon className={`icon right short-icon`} />
+                        }
+                        </div>
                         <Carrousel />
                         {post.posting_prices[0].expenses ?
                             <Price 
@@ -58,6 +66,7 @@ class PostItem extends React.Component {
                     }
                     </div>
                 </div>
+                
                 <div className="post-description-container">
                     <div>
                         <Description 

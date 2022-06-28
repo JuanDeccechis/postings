@@ -1,3 +1,16 @@
 .post-description-container {
     padding: var(--separation);
 }
+
+.description-container {
+    padding: var(--long-separation) 0;
+}
+
+.description-text {
+    height: 44px;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
