@@ -1,9 +1,15 @@
-.post-description-container {
-    padding: var(--separation);
+.post-description-container, .post-price-container {
+    padding: var(--short-separation);
 }
 
 .description-container {
     padding: var(--long-separation) 0;
+}
+
+.description-title {
+    margin: 0;
+    color: var(--secondary-color);
+    padding-bottom: var(--short-separation);
 }
 
 .description-text {

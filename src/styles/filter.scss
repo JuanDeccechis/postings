@@ -1,5 +1,5 @@
 .filters{
-    width: 30%;
+    width: 25%;
     display: inline-block;
     padding: var(--separation);
     height: 100%;
@@ -41,6 +41,9 @@ input[type="radio"]:checked:after {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    &.inline-with-image {
+        align-items: flex-start;
+    }
 }
 
 .accordion-title {

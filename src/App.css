@@ -4,10 +4,12 @@
   --background-color: lightgrey;
   --container-color: white;
   --button-text-color: white;
-  --long-separation: 50px;
+  --long-separation: 33px;
   --separation: 20px;
   --short-separation: 10px;
   --border-radius: 5px;
+  --scroll-bar-color: grey;
+  --scroll-bar-background: white;
 }
 
 h2{
@@ -36,4 +38,19 @@ label, div.description-text {
   -webkit-appearance: button;
   -moz-appearance: button;
   appearance: button;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scroll-bar-background);
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-bar-color);
+  border-radius: 50px;
 }

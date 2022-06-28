@@ -108,7 +108,7 @@ function* filterPostsByTypeAndLocation({conditionType, conditionLocation}) {
     } else if (conditionType === "Todos") {
         yield put({ type: types.FILTER_POSTS_BY_LOCATION_REQUEST, condition: conditionLocation });
     } else {
-        filteredPosts = postings.filter(post => post.posting_location.zone === conditionLocation && post.operation_type.operation_type_name === conditionType)
+        filteredPosts = postings.filter(post => (post.posting_location.zone === conditionLocation || post.posting_location.city === conditionLocation )&& post.operation_type.operation_type_name === conditionType)
         yield put({ type: types.FILTER_POSTS_SUCCESS, filteredPosts: filteredPosts });
     }
 }
@@ -117,7 +117,7 @@ function* filterPostsOnlyByLocation({condition}) {
     yield call(delay, 1500);
     let filteredPosts = postings;
     if (condition !== "") {
-        filteredPosts = postings.filter(post => post.posting_location.zone === condition)
+        filteredPosts = postings.filter(post => (post.posting_location.zone === condition) || (post.posting_location.city === condition))
     }
     yield put({ type: types.FILTER_POSTS_SUCCESS, filteredPosts: filteredPosts });
 }

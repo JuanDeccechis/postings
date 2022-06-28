@@ -22,7 +22,7 @@ class PostsPage extends React.Component {
             <div className="posts-page">
                 <Filters />
                 {posts && 
-                    <ul className="container post-list-container">
+                    <ul className="post-list-container">
                         {posts.map((post, index) => {
                             return (
                                 <PostItem key={index} index={index} post={post}/>

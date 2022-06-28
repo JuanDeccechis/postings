@@ -50,7 +50,7 @@ class Price extends React.Component {
     render() {
         const { price, expenses } = this.state;
         return (
-            <div>
+            <div className="post-price-container">
                 <div className="price">
                     {price}
                 </div>

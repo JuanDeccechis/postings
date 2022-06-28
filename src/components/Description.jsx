@@ -14,7 +14,7 @@ class Description extends React.Component {
         const { title, location_address, location_zone, location_city, description } = this.props;
         return (
             <div>
-                <h3> { title } </h3>
+                <h3 className="description-title"> { title } </h3>
                 <div>
 
                 {location_address && 

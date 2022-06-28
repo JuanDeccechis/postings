@@ -1,5 +1,4 @@
 import React from 'react'
-import Carrousel from './Carrousel'
 import Description from './Description'
 import Price from './Price'
 import PublishDate from './PublishDate'
@@ -15,9 +14,13 @@ class PostItem extends React.Component {
     }
 
     componentDidMount() {
-        const { posting_id } = this.props.post;
+        const { index } = this.props;
+        const { posting_id, posting_picture } = this.props.post;
         const favorites = localStorage.getItem("postsFavorites") || "";
         const isFavorite = favorites.includes(posting_id);
+        let item = document.getElementById(`${index}`);
+        let slider = item.querySelector('.slider');
+        slider.style = `background-image: url(${posting_picture})`;
         this.setState({ isFavorite: isFavorite })
     }
 
@@ -40,9 +43,9 @@ class PostItem extends React.Component {
         const { index, post } = this.props;
         const { isFavorite } = this.state;
         return(
-            <li key={index} className={`container post-item-container decoration-plan ${post.publication_plan}`}>
-                <div>
-                    <div>
+            <li key={index} id={index} className={`container post-item-container decoration-plan ${post.publication_plan}`}>
+                <div className="inline inline-with-image">
+                    <div className="post-image-container">
                         <div className="favorite-container" onClick={() => this.handleToggleFavorites(post.posting_id)}>
                         {isFavorite ? 
                             <FavoriteIcon className={`icon right short-icon favorite`} />
@@ -50,7 +53,8 @@ class PostItem extends React.Component {
                             <FavoriteBorderIcon className={`icon right short-icon`} />
                         }
                         </div>
-                        <Carrousel />
+                        <div className="slider"></div>
+
                         {post.posting_prices[0].expenses ?
                             <Price 
                                 priceCurrency={post.posting_prices[0].price.currency} 
@@ -65,25 +69,25 @@ class PostItem extends React.Component {
                             />
                     }
                     </div>
-                </div>
                 
-                <div className="post-description-container">
-                    <div>
-                        <Description 
-                            title={post.title} 
-                            location_address={post.posting_location.address}
-                            location_zone={post.posting_location.zone}
-                            location_city={post.posting_location.city}
-                            description={post.posting_description}
-                        />
-                    </div>
-                    <div className="post-options">
+                    <div className="post-description-container">
+                        <div>
+                            <Description 
+                                title={post.title} 
+                                location_address={post.posting_location.address}
+                                location_zone={post.posting_location.zone}
+                                location_city={post.posting_location.city}
+                                description={post.posting_description}
+                                />
+                        </div>
+                        <div className="post-options">
 
-                        <PublishDate
-                            publish_date={post.publish_date}
-                            posting_id={post.posting_id}
-                            />
-                        <a href="https://google.com" className="without-link-styles btn btn-primary">Contactar</a>
+                            <PublishDate
+                                publish_date={post.publish_date}
+                                posting_id={post.posting_id}
+                                />
+                            <a href="https://google.com" className="without-link-styles btn btn-primary">Contactar</a>
+                        </div>
                     </div>
                 </div>
             </li>

@@ -7,8 +7,11 @@
 }
 
 .post-list-container{
-    width: 65%;
+    width: 75%;
+    max-height: 95vh;
+    overflow-y: auto;
     margin: 0;
     list-style-type: none;
     padding: 0;
+    padding-right: 20px;
 }
